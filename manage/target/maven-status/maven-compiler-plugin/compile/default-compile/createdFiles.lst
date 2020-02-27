@@ -1,0 +1,15 @@
+fair\manage\util\Md5Util.class
+fair\manage\util\JedisUtil.class
+fair\manage\web\servlet\BaseServlet.class
+fair\manage\util\JDBCUtils.class
+fair\manage\web\servlet\UserServlet.class
+fair\manage\util\MailUtils$1.class
+fair\manage\domain\User.class
+fair\manage\util\UuidUtil.class
+fair\manage\web\servlet\CheckCodeServlet.class
+fair\manage\domain\ResultInfo.class
+fair\manage\dao\UserDao.class
+fair\manage\util\MailUtils.class
+fair\manage\dao\impl\UserDaoImpl.class
+fair\manage\service\impl\UserServiceImpl.class
+fair\manage\service\UserService.class
