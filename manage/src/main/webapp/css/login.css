@@ -16,7 +16,7 @@
 .title {
     height: 80px;
     line-height: 80px;
-    background: #ffc900;
+    background: #0CF;
     font-size: 22px;
     padding:0 30px; 
 }
@@ -62,6 +62,7 @@
     -webkit-transition: box-shadow 0.25s linear 0s;
     margin-bottom: 17px;
 }
+
 .verify input {
     width: 95px;
     margin-right: 20px;
@@ -73,7 +74,7 @@
     width: 120px;
     height: 40px;
     border: none;
-    background-color: #ffa800;   
+    background-color: #0CF;
     text-align: center;
     line-height: 40px;
     color: #000;
@@ -85,11 +86,13 @@
 .auto_login {
    margin-top: 15px;
 }
+
 .submit_btn .checkbox {
     float: left;
     width: 17px;
     margin: 7px 5px 0 54px;
 }
+
 .submit_btn  span {
     line-height: 35px;
 }
@@ -104,6 +107,7 @@
     text-align: center;
     font-size: 16px;
 }
+
 .reg a {
     color: #fc7f7f;
 }

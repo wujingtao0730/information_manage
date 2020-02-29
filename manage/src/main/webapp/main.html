@@ -4,11 +4,173 @@
     <meta charset="UTF-8">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <script src="js/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="js/include.js"></script>
+    <link rel="stylesheet" href="css/register.css">
     <title>信息管理系统</title>
+    <script>
+        function checkId(){
+            var id = $("#id").val();
+            if(id == ""){
+                flag = false;
+            }else {
+                flag = true;
+            }
+            if(flag){
+                $("#id").css("border", "");
+            }else {
+                $("#id").css("border", "1px red solid");
+            }
+            return flag;
+        }
+
+        function checkName(){
+            var name = $("#name").val();
+            var reg_name = /^[\u4e00-\u9fa5]{2,4}$/;
+            var flag = reg_name.test(name);
+            if(flag){
+                $("#name").css("border", "");
+            }else {
+                $("#name").css("border", "1px red solid");
+            }
+            return flag;
+        }
+
+        function checkBirthday(){
+            var birthday = $("#birthday").val();
+            if(birthday == ""){
+                flag = false;
+            }else {
+                flag = true;
+            }
+            if(flag){
+                $("#birthday").css("border", "");
+            }else {
+                $("#birthday").css("border", "1px red solid");
+            }
+            return flag;
+        }
+
+        $(function () {
+            $("#registerForm").submit(function(){
+                if(checkBirthday() && checkName() && checkId()) {
+                    $.post("engineer/saveInfo", $(this).serialize(), function (data) {
+                        if (data.flag) {
+                            alert("添加成功");
+                            location.reload();
+                        } else {
+                            $("#errorMsg").html(data.errorMsg);
+                        }
+                    });
+                }
+                return false;
+            });
+            $("#name").blur(checkName);
+            $("#id").blur(checkId);
+            $("#birthday").blur(checkBirthday);
+        });
+    </script>
 </head>
 <body>
 <div id="header"></div>
-<h1>111</h1>
+<div class="rg_layout">
+    <div class="rg_form clearfix">
+        <div class="rg_form_left">
+            <p>填写工程师信息</p>
+            <p>ADD INFORMATION</p>
+        </div>
+        <div class="rg_form_center">
+            <div id="errorMsg" style="color: red; text-align: center"></div>
+            <!--注册表单-->
+            <form id="registerForm">
+                <!--提交处理请求的标识符-->
+                <input type="hidden" name="action" value="saveInfo">
+                <table style="margin-top: 25px;">
+                    <tr>
+                        <td class="td_left">
+                            <label for="id">工号</label>
+                        </td>
+                        <td class="td_right">
+                            <input type="text" id="id" name="id" placeholder="请输入工号">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td_left">
+                            <label for="name1">姓名</label>
+                        </td>
+                        <td class="td_right">
+                            <input type="text" id="name" name="name" placeholder="请输入姓名">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td_left">
+                            <label for="address">地址</label>
+                        </td>
+                        <td class="td_right">
+                            <input type="text" id="address" name="address" placeholder="请输入地址">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td_left">
+                            <label for="telephone">手机号</label>
+                        </td>
+                        <td class="td_right">
+                            <input type="text" id="telephone" name="telephone" placeholder="请输入手机号">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td_left">
+                            <label for="working_years">工龄</label>
+                        </td>
+                        <td class="td_right">
+                            <input type="text" id="working_years" name="working_years" placeholder="请输入工龄">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td_left">
+                            <label for="salary">薪水</label>
+                        </td>
+                        <td class="td_right">
+                            <input type="text" id="salary" name="salary" placeholder="请输入薪水">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td_left">
+                            <label for="sex">性别</label>
+                        </td>
+                        <td class="td_right gender">
+                            <input type="radio" id="sex" name="sex" value="男" checked> 男
+                            <input type="radio" name="sex" value="女"> 女
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td_left">
+                            <label for="education">学历</label>
+                        </td>
+                        <td class="td_right">
+                            <input type="text" id="education" name="education" placeholder="请输入学历">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td_left">
+                            <label for="birthday">出生日期</label>
+                        </td>
+                        <td class="td_right">
+                            <input type="date" id="birthday" name="birthday" placeholder="年/月/日">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="td_left">
+                        </td>
+                        <td class="td_right check">
+                            <input type="submit" class="submit" value="确定">
+                            <span id="msg" style="color: red;"></span>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="js/include.js"></script>
 </body>
 </html>

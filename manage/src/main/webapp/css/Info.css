@@ -1,0 +1,214 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600);
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webkit-font-smoothing:antialiased;
+    -moz-font-smoothing:antialiased;
+    -o-font-smoothing:antialiased;
+    font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+}
+
+body {
+    font-family:"Open Sans", Helvetica, Arial, sans-serif;
+    font-weight:300;
+    font-size: 12px;
+    line-height:30px;
+    color:#777;
+    background:#0CF;
+}
+
+.container {
+    max-width:250px;
+    width:100%;
+    margin:0 auto;
+    position:relative;
+}
+
+#contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact textarea, #contact button[type="submit"] { font:400 12px/16px "Open Sans", Helvetica, Arial, sans-serif; }
+
+#contact {
+    background:#F9F9F9;
+    padding:25px;
+    margin:5px 0;
+}
+
+#contact h3 {
+    color: #F96;
+    display: block;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+#contact h4 {
+    margin:5px 0 15px;
+    display:block;
+    font-size:13px;
+}
+
+fieldset {
+    border: medium none !important;
+    margin: 0 0 10px;
+    min-width: 100%;
+    padding: 0;
+    width: 100%;
+}
+
+#contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact textarea {
+    width:100%;
+    border:1px solid #CCC;
+    background:#FFF;
+    margin:0 0 5px;
+    padding:10px;
+}
+
+#contact input[type="text"]:hover, #contact input[type="email"]:hover, #contact input[type="tel"]:hover, #contact input[type="url"]:hover, #contact textarea:hover {
+    -webkit-transition:border-color 0.3s ease-in-out;
+    -moz-transition:border-color 0.3s ease-in-out;
+    transition:border-color 0.3s ease-in-out;
+    border:1px solid #AAA;
+}
+
+#contact textarea {
+    height:100px;
+    max-width:100%;
+    resize:none;
+}
+
+#contact button[type="submit"] {
+    cursor:pointer;
+    width:100%;
+    border:none;
+    background:#0CF;
+    color:#FFF;
+    margin:0 0 5px;
+    padding:10px;
+    font-size:15px;
+}
+
+#contact button[type="submit"]:hover {
+    background:#09C;
+    -webkit-transition:background 0.3s ease-in-out;
+    -moz-transition:background 0.3s ease-in-out;
+    transition:background-color 0.3s ease-in-out;
+}
+
+#contact button[type="submit"]:active { box-shadow:inset 0 1px 3px rgba(0, 0, 0, 0.5); }
+
+#contact input:focus, #contact textarea:focus {
+    outline:0;
+    border:1px solid #999;
+}
+::-webkit-input-placeholder {
+    color:#888;
+}
+:-moz-placeholder {
+    color:#888;
+}
+::-moz-placeholder {
+    color:#888;
+}
+:-ms-input-placeholder {
+    color:#888;
+}
+
+.rg_layout{
+    width: 100%;
+    height: 585px;
+    background-size: 100% 800px;
+    overflow: hidden;
+}
+.rg_layout .rg_form{
+    width: 886px;
+    height: 550px;
+    background-color: #fff;
+    margin:24px auto;
+    border:8px solid #eeeeee;
+    box-sizing: border-box;
+}
+
+.rg_layout .rg_form > .rg_form_left{
+    width:256px;
+    float: left;
+    padding-top:20px;
+    padding-left: 20px;
+    box-sizing: border-box;
+}
+.rg_layout .rg_form > .rg_form_right{
+    width:358px;
+    float: left;
+    padding-top:10px;
+    padding-left: 60px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+/*.rg_layout .rg_form > .rg_form_right{*/
+/*    width:256px;*/
+/*    float: right;*/
+/*}*/
+
+.rg_form > .rg_form_left > p:first-child{
+    font-size: 20px;
+    color:#ffcd26;
+
+}
+.rg_form > .rg_form_left > p:last-child{
+    font-size: 20px;
+    color: #a6a6a6;
+}
+.rg_form > .rg_form_right .td_left{
+    width: 65px;
+    text-align: right;
+}
+.rg_form > .rg_form_right table{
+    vertical-align: top;
+}
+.rg_form > .rg_form_right table tr{
+    height: 50px;
+}
+.rg_form > .rg_form_right .td_right{
+    width: 293px;
+}
+.rg_form_right .td_right > input[type="text"],.rg_form_right .td_right > input[type="date"]{
+    width: 256px;
+    height: 32px;
+    line-height: 32px;
+    box-sizing: border-box;
+    padding: 6px 12px;
+    border-radius: 4px;
+    border:1px solid #a6a6a6;
+    float: right;
+}
+.rg_form > .rg_form_right .td_right.gender{
+    padding-left: 40px;
+    box-sizing: border-box;
+}
+.rg_form > .rg_form_right .td_right.check{
+    padding-left: 36px;
+    box-sizing: border-box;
+}
+.rg_form > .rg_form_right .td_right > .check{
+    width: 118px;
+    float: left;
+    margin-right:14px;
+}
+.rg_form > .rg_form_right .td_right > .submit{
+    width: 120px;
+    height: 36px;
+    line-height: 36px;
+    background-color: #0CF;
+    font-size: 14px;
+}
+/*.rg_form > .rg_form_right >p{*/
+/*    float: right;*/
+/*    font-size: 14px;*/
+/*    padding: 20px 12px 0 0;*/
+/*    box-sizing: border-box;*/
+/*}*/
+/*.rg_form > .rg_form_right >p >a{*/
+/*    color: #fc8989;*/
+/*}*/

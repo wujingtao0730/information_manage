@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="js/include.js"></script>
+    <title>删除记录</title>
+    <script>
+        $(function () {
+            $("#contact-submit").click(function () {
+                var c = confirm("确定要删除吗");
+                if(c == true){
+                    $("#registerForm").submit(function(){
+                        var id = $("#id").val();
+                        $.post("engineer/deleteInfo", {id:id}, function (data) {
+                            if (data.flag) {
+                                alert("删除成功");
+                            } else {
+                                $("#errorMsg").html(data.errorMsg);
+                            }
+                        });
+                        return false;
+                    });
+
+                }
+            })
+        });
+    </script>
+</head>
+<body>
+<div id="header"></div>
+<div class="container" id="registerForm">
+    <form id="contact" action="" method="post">
+        <input type="hidden" name="action" value="deleteInfo">
+        <h4>请输入你要删除的工号(删除后无法恢复)</h4>
+        <fieldset>
+            <input placeholder="Engineer id" type="text" tabindex="1" id="id" name="id" required autofocus>
+        </fieldset>
+        <fieldset>
+            <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+        </fieldset>
+    </form>
+
+</div>
+</body>
+</html>

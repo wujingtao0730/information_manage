@@ -95,5 +95,16 @@ public class UserDaoImpl implements UserDao {
         return u;
     }
 
-
+    @Override
+    public void update(User user) {
+        String sql = "update tab_user set password = ?, name = ?, birthday = ?, sex = ?, telephone = ?, email = ? where username = ?";
+        jdbcTemplate.update(sql, user.getPassword(),
+                user.getName(),
+                user.getBirthday(),
+                user.getSex(),
+                user.getTelephone(),
+                user.getEmail(),
+                user.getUsername()
+        );
+    }
 }

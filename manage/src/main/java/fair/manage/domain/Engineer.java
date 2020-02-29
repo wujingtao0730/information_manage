@@ -9,11 +9,10 @@ import java.util.Date;
  * @date 2020-02-27 下午 16:32
  */
 public class Engineer {
-    private int id; //工程师id
+    private String id; //工程师工号
     private String name; //工程师姓名
-    private String native_place; //籍贯
     private String sex; //性别
-    private Date birthday; // 出生日期
+    private String birthday; // 出生日期
     private String address; //地址
     private String education; //学历
     private String telephone; //电话号码
@@ -23,11 +22,10 @@ public class Engineer {
     @Override
     public String toString() {
         return "Engineer{" +
-                "id=" + id +
+                "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", native_place='" + native_place + '\'' +
                 ", sex='" + sex + '\'' +
-                ", birthday=" + birthday +
+                ", birthday='" + birthday + '\'' +
                 ", address='" + address + '\'' +
                 ", education='" + education + '\'' +
                 ", telephone='" + telephone + '\'' +
@@ -36,11 +34,12 @@ public class Engineer {
                 '}';
     }
 
-    public int getId() {
+
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -52,14 +51,6 @@ public class Engineer {
         this.name = name;
     }
 
-    public String getNative_place() {
-        return native_place;
-    }
-
-    public void setNative_place(String native_place) {
-        this.native_place = native_place;
-    }
-
     public String getSex() {
         return sex;
     }
@@ -68,11 +59,11 @@ public class Engineer {
         this.sex = sex;
     }
 
-    public Date getBirthday() {
+    public String getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(Date birthday) {
+    public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
 

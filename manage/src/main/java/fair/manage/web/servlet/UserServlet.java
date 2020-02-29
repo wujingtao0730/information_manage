@@ -140,8 +140,10 @@ public class UserServlet extends BaseServlet {
      * @throws IOException
      */
     public void exit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        ResultInfo info = new ResultInfo();
         request.getSession().invalidate();
-        response.sendRedirect(request.getContextPath()+"/login.html");
+        info.setFlag(true);
+        writeValue(info, response);
     }
 
     /**
@@ -152,7 +154,51 @@ public class UserServlet extends BaseServlet {
      * @throws IOException
      */
     public void findOne(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Object user = request.getSession().getAttribute("user");
+        User user = (User) request.getSession().getAttribute("user");
         writeValue(user, response);
     }
+
+    /**
+     * 修改用户信息
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
+    public void update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        ResultInfo info = new ResultInfo();
+        String check = request.getParameter("check");
+        HttpSession session = request.getSession();
+        String checkcode_server = (String) session.getAttribute("CHECKCODE_SERVER");
+        session.removeAttribute("CHECKCODE_SERVER");
+        if(check.equalsIgnoreCase(checkcode_server)){
+            Map<String, String[]> map = request.getParameterMap();
+            User user = new User();
+            try {
+                BeanUtils.populate(user, map);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (InvocationTargetException e) {
+                e.printStackTrace();
+            }
+            User u = (User) request.getSession().getAttribute("user");
+            String username = u.getUsername();
+            user.setUsername(username);
+            UserService service = new UserServiceImpl();
+            boolean flag = service.update(user);
+            if(flag){
+                info.setFlag(true);
+                request.getSession().setAttribute("user",user);
+            }else {
+                info.setFlag(false);
+                info.setErrorMsg("修改失败");
+            }
+            writeValue(info, response);
+        }else {
+            info.setFlag(false);
+            info.setErrorMsg("验证码错误");
+            writeValue(info, response);
+        }
+    }
+
 }

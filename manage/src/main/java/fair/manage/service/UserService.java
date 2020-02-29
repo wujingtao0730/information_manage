@@ -9,10 +9,31 @@ import fair.manage.domain.User;
  * @date 2020-02-07 下午 13:53
  */
 public interface UserService {
-    //注册用户
-    public boolean regist(User user);
+    /**
+     * 用户注册
+     * @param user
+     * @return
+     */
+    boolean regist(User user);
 
-    public boolean active(String code);
+    /**
+     * 用户激活
+     * @param code
+     * @return
+     */
+    boolean active(String code);
 
-    public User login(User user);
+    /**
+     * 用户登录
+     * @param user
+     * @return
+     */
+    User login(User user);
+
+    /**
+     * 修改用户信息
+     * @param user
+     * @return
+     */
+    boolean update(User user);
 }
